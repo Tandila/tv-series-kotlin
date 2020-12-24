@@ -39,7 +39,7 @@ class MainPageAdapter(private var images: List<String>): RecyclerView.Adapter<Ma
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Picasso.get().load(images[position]).into(holder.itemPicture)
+        Picasso.get().load(images[position]).fit().centerCrop().into(holder.itemPicture)
     }
 
 }

@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-        viewModel.getMovies()
         viewModel.myResponse.observe(this, {response ->
             postToList(response.movies)
             moviesGlobal = response.movies.toMutableList()
@@ -43,8 +42,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun postToList(movies: Array<MoviesData>) {
         for (i in movies) {
-            addToList(i.imageUrl)
-        }
+                addToList(i.imageUrl)
+            }
     }
 
 }

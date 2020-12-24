@@ -10,8 +10,7 @@ import kotlinx.coroutines.launch
 class MainViewModel(private val repository: Repository): ViewModel() {
 
     val myResponse: MutableLiveData<Movies> = MutableLiveData()
-
-    fun getMovies() {
+    init {
         viewModelScope.launch {
             val response = repository.getMovies()
             myResponse.value = response
